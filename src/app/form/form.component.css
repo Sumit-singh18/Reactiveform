@@ -1,0 +1,55 @@
+form {
+  /* Set the display to block to take up the full width of the container */
+  display: flex;
+  flex-direction: column;
+  /* Add some padding to give some space around the form */
+  padding: 20px;
+  margin: 100px;
+  /* Set the background color */
+  background-color: #ff2320;
+
+  /* Add a border with rounded corners */
+  border: 3px solid #000000;
+  border-radius: 5px;
+  color: white;
+
+  /* Add some box shadow for depth */
+  box-shadow: 0 0 10px rgba(191, 52, 52, 0.1);
+}
+h1 {
+  /* Set the font family and size */
+  font-family: "Roboto", sans-serif;
+  font-size: 36px;
+
+  /* Add some margin to separate the heading from other elements */
+  margin: 40px 0;
+
+  /* Set the text color to a dark shade of gray */
+  color: #ffffff;
+
+  /* Add some text shadow for depth */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Center the text horizontally */
+  text-align: center;
+
+  /* Add some background color */
+  background-color: #0b0b0a;
+
+  /* Add a border with rounded corners */
+  border: 3px solid #ddd;
+  border-radius: 5px;
+
+  /* Add some box shadow for depth */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  border: 2px solid black;
+}
+button {
+  border: 2px solid black;
+  color: #fafafa;
+  text-decoration: solid;
+  background-color: #000000;
+}

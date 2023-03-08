@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+  </head>
+
+  <body>
+    <div>
+      <h1>Reactive Form in Angular</h1>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <label for="mobile">Mobile Number</label>
+        <input type="text" id="mobile" formControlName="mobile" />
+        <div
+          *ngIf="
+            myForm.get('mobile')?.invalid &&
+            (myForm.get('mobile')?.dirty || myForm.get('mobile')?.touched)
+          "
+        >
+          <div *ngIf="myForm.get('mobile')?.hasError('required')">
+            Mobile number is required
+          </div>
+          <div *ngIf="myForm.get('mobile')?.hasError('pattern')">
+            Mobile number must be 10 digits
+          </div>
+        </div>
+
+        <label for="email">Email Address</label>
+        <input
+          type="text"
+          id="email"
+          formControlName="email"
+          placeholder="name@example.com"
+        />
+        <div
+          *ngIf="
+            myForm.get('email')?.invalid &&
+            (myForm.get('email')?.dirty || myForm.get('email')?.touched)
+          "
+        >
+          <div *ngIf="myForm.get('email')?.hasError('required')">
+            Email address is required
+          </div>
+          <div *ngIf="myForm.get('email')?.hasError('email')">
+            Invalid email address
+          </div>
+        </div>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" />
+        <div
+          *ngIf="
+            myForm.get('username')?.invalid &&
+            (myForm.get('username')?.dirty || myForm.get('username')?.touched)
+          "
+        >
+          <div *ngIf="myForm.get('username')?.hasError('required')">
+            Username is required
+          </div>
+          <div *ngIf="myForm.get('username')?.hasError('minlength')">
+            Username must be at least 3 characters
+          </div>
+          <div *ngIf="myForm.get('username')?.hasError('maxlength')">
+            Username cannot be more than 20 characters
+          </div>
+        </div>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" />
+        <div
+          *ngIf="
+            myForm.get('password')?.invalid &&
+            (myForm.get('password')?.dirty || myForm.get('password')?.touched)
+          "
+        >
+          <div *ngIf="myForm.get('password')?.hasError('required')">
+            Password is required
+          </div>
+          <div *ngIf="myForm.get('password')?.hasError('minlength')">
+            Password must be at least 6 characters
+          </div>
+        </div>
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+        />
+        <div
+          *ngIf="
+            myForm.get('confirmPassword')?.invalid &&
+            (myForm.get('confirmPassword')?.dirty ||
+              myForm.get('confirmPassword')?.touched)
+          "
+        >
+          <div *ngIf="myForm?.hasError('passwordMismatch')">
+            Passwords do not match
+          </div>
+          <div *ngIf="myForm.get('confirmPassword')?.hasError('required')">
+            Confirm Password is required
+          </div>
+        </div>
+        <br />
+        <button type="submit" ng-disabled="myForm.invalid">
+          Submit to see data in console
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
